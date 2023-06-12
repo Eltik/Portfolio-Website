@@ -14,85 +14,261 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <header className="pt-6">
-                    <nav className={`relative ml-auto mr-auto flex max-w-[80rem] items-center justify-between sm:px-0 px-5 ${navOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"} transition-all duration-200 ease-in-out`}>
-                        <div className="flex flex-1 items-center text-gray-500">
-                            <div className="flex items-center justify-between w-full md:w-auto">
-                                <Link href="/" className="cursor-pointer">
-                                    <img src="/eltik.png" className="w-auto h-14 rounded-md" />
-                                </Link>
-                                <div className="-mr-2 flex items-center md:hidden" onClick={() => {
-                                    setNavOpen(!navOpen)
-                                }}>
-                                    <button className="inline-flex justify-center items-center p-[.5rem] rounded-sm" type="button" style={{
-                                        transitionProperty: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter"
-                                    }}>
-                                        <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="hidden md:block md:ml-10">
-                                <Link href="/projects" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
-                                    Projects
-                                </Link>
-                                <Link href="/youtube" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
-                                    YouTube
-                                </Link>
-                                <Link href="/github" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
-                                    GitHub
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="hidden md:block text-right">
-                            <span className="inline-flex rounded-md shadow-md">
-                                <span className="inline-flex rounded-md">
-                                    <button type="button" className="inline-flex items-center p-[.5rem_1rem] rounded-md bg-white text-main font-semibold transition-all duration-150 hover:bg-slate-50" style={{
-                                        borderWidth: "1px",
-                                        borderColor: "rgb(243 244 246 / 1)"
-                                    }}>Login</button>
-                                </span>
-                            </span>
-                            <span className="ml-5 inline-flex rounded-md shadow-md">
-                                <span className="inline-flex rounded-md">
-                                    <button type="button" className="inline-flex items-center p-[.5rem_1rem] rounded-md bg-main text-white font-semibold transition-all duration-150 hover:bg-main-dark">Register</button>
-                                </span>
-                            </span>
-                        </div>
-                    </nav>
-                    <div className={`sm:hidden ${navOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-5"} absolute left-0 right-0 top-0 z-20 p-[.5rem] transition-all duration-200 ease-in-out`}>
-                        <div className="rounded-lg shadow-md transition transform origin-top-right">
-                            <div className="overflow-hidden rounded-[.5rem] bg-white shadow-md">
-                                <div className="px-5 pt-4 flex items-center justify-between">
-                                    <div>
+                <div className="relative bg-white overflow-hidden pb-8 sm:pb-12 lg:pb-12">
+                    <header className="pt-6">
+                        <nav className={`relative ml-auto mr-auto flex max-w-[80rem] items-center justify-between sm:px-0 px-5 ${navOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"} transition-all duration-200 ease-in-out`}>
+                            <div className="flex flex-1 items-center text-gray-500">
+                                <div className="flex items-center justify-between w-full md:w-auto">
+                                    <Link href="/" className="cursor-pointer">
                                         <img src="/eltik.png" className="w-auto h-14 rounded-md" />
-                                    </div>
-                                    <div className="-mr-2">
-                                        <button className="inline-flex items-center justify-center rounded-md p-[.5rem]" type="button" onClick={() => {
-                                            setNavOpen(!navOpen)
+                                    </Link>
+                                    <div className="-mr-2 flex items-center md:hidden" onClick={() => {
+                                        setNavOpen(!navOpen)
+                                    }}>
+                                        <button className="inline-flex justify-center items-center p-[.5rem] rounded-sm" type="button" style={{
+                                            transitionProperty: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter"
                                         }}>
-                                            <svg className="h-6 w-6 stroke-current" fill="none" viewBox="0 0 24 24">
-                                                <path className="stroke-2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                                            <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                                             </svg>
                                         </button>
                                     </div>
                                 </div>
-                                <div className="px-2 pt-2 pb-3 text-gray-500">
+                                <div className="hidden md:block md:ml-10">
                                     <Link href="/projects" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
                                         Projects
                                     </Link>
                                     <Link href="/youtube" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
                                         YouTube
                                     </Link>
-                                    <Link href="/github" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
-                                        GitHub
+                                    <Link href="/premium" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-orange-500 text-orange-400">
+                                        Premium+
                                     </Link>
+                                </div>
+                            </div>
+                            <div className="hidden md:block text-right">
+                                <span className="inline-flex rounded-md shadow-md">
+                                    <span className="inline-flex rounded-md">
+                                        <button type="button" className="inline-flex items-center p-[.5rem_1rem] rounded-md bg-white text-main font-semibold transition-all duration-150 hover:bg-slate-50" style={{
+                                            borderWidth: "1px",
+                                            borderColor: "rgb(243 244 246 / 1)"
+                                        }}>Login</button>
+                                    </span>
+                                </span>
+                                <span className="ml-5 inline-flex rounded-md shadow-md">
+                                    <span className="inline-flex rounded-md">
+                                        <button type="button" className="inline-flex items-center p-[.5rem_1rem] rounded-md bg-main text-white font-semibold transition-all duration-150 hover:bg-main-dark">Register</button>
+                                    </span>
+                                </span>
+                            </div>
+                        </nav>
+                        <div className={`sm:hidden ${navOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-5"} absolute left-0 right-0 top-0 z-20 p-[.5rem] transition-all duration-200 ease-in-out`}>
+                            <div className="rounded-lg shadow-md transition transform origin-top-right">
+                                <div className="overflow-hidden rounded-[.5rem] bg-white shadow-md">
+                                    <div className="px-5 pt-4 flex items-center justify-between">
+                                        <div>
+                                            <img src="/eltik.png" className="w-auto h-14 rounded-md" />
+                                        </div>
+                                        <div className="-mr-2">
+                                            <button className="inline-flex items-center justify-center rounded-md p-[.5rem]" type="button" onClick={() => {
+                                                setNavOpen(!navOpen)
+                                            }}>
+                                                <svg className="h-6 w-6 stroke-current" fill="none" viewBox="0 0 24 24">
+                                                    <path className="stroke-2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className="px-2 pt-2 pb-3 text-gray-500">
+                                        <Link href="/projects" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
+                                            Projects
+                                        </Link>
+                                        <Link href="/youtube" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
+                                            YouTube
+                                        </Link>
+                                        <Link href="/premium" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-orange-500 text-orange-400">
+                                            Premium+
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:flex lg:flex-row sm:px-12">
+                        <div className="max-w-[28rem] px-[1rem]">
+                            <div className="my-4 text-lg">
+                                <span className="rounded-sm text-sm font-semibold p-[.25rem_.625rem]" style={{
+                                    backgroundColor: "rgb(220 247 236 / 1)",
+                                    color: "rgb(27 181 104 / 1)"
+                                }}>Beta</span>
+                            </div>
+                            <div className="mt-6 sm:max-w-xl">
+                                <h1 className="text-gray-950 text-5xl font-extrabold">
+                                    Innovative
+                                    <br />
+                                    <span className="text-main">
+                                        Web Developer
+                                    </span>
+                                </h1>
+                                <p className="mt-[1.5rem] text-base">
+                                    Discover Eltik&apos;s exceptional web development skills. With a decade of coding experience, explore a portfolio showcasing innovative projects and cutting-edge designs.
+                                </p>
+                            </div>
+                            <div className="mt-6 sm:max-w-lg sm:w-full sm:flex">
+                                <div>
+                                    <button type="button" className="block w-full rounded-md p-[.75rem_1.25rem] text-center text-white shadow-md bg-main font-semibold transition-all duration-150 hover:bg-main-dark">
+                                        Get Started
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="sm:mx-auto sm:max-w-3xl sm:px-6">
+                            <div className="py-[3rem]">
+                                <div className="hidden lg:block">
+                                    <div className="absolute top-0 bottom-0 left-[50%] w-[100vw]" style={{
+                                        backgroundColor: "rgb(249 250 251 / 1)"
+                                    }}>
+                                        <svg className="absolute top-8 -mr-3 lg_m-0 lg_left-0 right-1/2" width="404" height="392" fill="none" viewBox="0 0 404 392">
+                                            <defs>
+                                                <pattern id="837c3e70-6c3a-44e6-8854-cc48c737b659" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                                    <rect className="text-gray-200" x="0" y="0" width="4" height="4" fill="currentColor"></rect>
+                                                </pattern>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className="sm:relative sm:mr-[-10rem] sm:pl-[1rem]">
+                                    <img src="https://www.kenmei.co/assets/preview-light-a87883fe.jpg" className="shadow-md" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                </header>
+                </div>
+                <div className="py-12 bg-white">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                        <div className="lg:text-center">
+                            <p className="text-base leading-6 text-main font-bold tracking-wide uppercase">Projects</p>
+                            <h3 className="text-gray-950 font-extrabold text-4xl">Elevating Code & Crafting Solutions</h3>
+                        </div>
+                        <div className="mt-10">
+                            <ul className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                                <li className="mt-10 md_mt-0">
+                                    <div className="flex">
+                                        <div className="shrink-0">
+                                            <div className="flex w-12 h-12 justify-center items-center rounded-md bg-main text-white">
+                                                <svg className="h-6 w-6 stroke-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div className="ml-4">
+                                            <h5 className="font-semibold">Experienced</h5>
+                                            <p className="mt-2 text-base leading-6 text-gray-500 dark_text-gray-400">Experience meets expertise. Meet Eltik, an 18-year-old web developer with a decade of coding prowess, delivering exceptional projects.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li className="mt-10 md_mt-0">
+                                    <div className="flex">
+                                        <div className="shrink-0">
+                                            <div className="flex w-12 h-12 justify-center items-center rounded-md bg-main text-white">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-6 h-6 stroke-current">
+                                                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/>
+                                                    <path d="M10 22h4"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div className="ml-4">
+                                            <h5 className="font-semibold">Knowledgeable</h5>
+                                            <p className="mt-2 text-base leading-6 text-gray-500 dark_text-gray-400">An expert in full-stack solutions using JavaScript, HTML, Java, PHP, Swift, and Python. His portfolio showcases unparalleled expertise.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li className="mt-10 md_mt-0">
+                                    <div className="flex">
+                                        <div className="shrink-0">
+                                            <div className="flex w-12 h-12 justify-center items-center rounded-md bg-main text-white">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-6 h-6 stroke-current">
+                                                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div className="ml-4">
+                                            <h5 className="font-semibold">Reliable</h5>
+                                            <p className="mt-2 text-base leading-6 text-gray-500 dark_text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultrices venenatis ipsum, nec sodales metus vehicula sit amet. Aliquam erat volutpat. </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li className="mt-10 md_mt-0">
+                                    <div className="flex">
+                                        <div className="shrink-0">
+                                            <div className="flex w-12 h-12 justify-center items-center rounded-md bg-main text-white">
+                                                <svg className="h-6 w-6 stroke-current" fill="none" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div className="ml-4">
+                                            <h5 className="font-semibold">Lorem ipsum</h5>
+                                            <p className="mt-2 text-base leading-6 text-gray-500 dark_text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultrices venenatis ipsum, nec sodales metus vehicula sit amet. Aliquam erat volutpat. </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-gray-50 pt-12 sm:pt-16">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 5xl max-w-10xl">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <h2 className="text-gray-950 font-extrabold text-4xl">Incredible Statistics</h2>
+                            <p className="mt-3 text-base text-gray-500">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, itaque cumque blanditiis accusantium esse dolore porro perferendis provident excepturi praesentium quia impedit! A nulla nisi accusantium voluptatem aperiam sed deleniti.
+                            </p>
+                            <div className="mx-auto text-center mt-5 sm:max-w-xs">
+                                <Link href="/projects" className="w-full mt-[.75rem] rounded-md p-[.75rem_1.5rem] font-semibold bg-main shadow-md text-white transition-all duration-150 hover:bg-main-dark">View Projects</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-10 pb-12 bg-white sm:pb-16">
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-gray-50 h-1/2">
+                                
+                            </div>
+                            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 5xl:max-w-10xl">
+                                <div className="max-w-4xl mx-auto">
+                                    <div className="rounded-md shadow-md flex" style={{
+                                        backgroundColor: "rgb(255 255 255 / 1)"
+                                    }}>
+                                        <div className="border-b sm:border-0 sm:border-r border-gray-100 p-[1.5rem] text-center">
+                                            <p className="font-extrabold text-main text-4xl">23456</p>
+                                            <p className="font-bold text-xl" style={{
+                                                color: "rgb(107 114 128 / 1)"
+                                            }}>Unique Website Visitors</p>
+                                        </div>
+                                        <div className="border-b border-t sm:border-0 sm:border-l sm:border-r border-gray-100 p-[1.5rem] text-center">
+                                            <p className="font-extrabold text-main text-4xl">1,223</p>
+                                            <p className="font-bold text-xl" style={{
+                                                color: "rgb(107 114 128 / 1)"
+                                            }}>YouTube Subscribers</p>
+                                        </div>
+                                        <div className="border-t sm:border-0 sm:border-l border-gray-100 p-[1.5rem] text-center">
+                                            <p className="font-extrabold text-main text-4xl">13+</p>
+                                            <p className="font-bold text-xl" style={{
+                                                color: "rgb(107 114 128 / 1)"
+                                            }}>Years of Experience</p>
+                                        </div>
+                                        <div className="border-t sm:border-0 sm:border-l border-gray-100 p-[1.5rem] text-center">
+                                            <p className="font-extrabold text-main text-4xl">6~</p>
+                                            <p className="font-bold text-xl" style={{
+                                                color: "rgb(107 114 128 / 1)"
+                                            }}>Coding Languages</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
         </>
     );
