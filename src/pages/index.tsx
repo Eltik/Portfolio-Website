@@ -1,8 +1,11 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 
 const Home: NextPage = () => {
+    const [navOpen, setNavOpen] = useState(false)
+    
     return (
         <>
             <Head>
@@ -11,7 +14,85 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                
+                <header className="pt-6">
+                    <nav className={`relative ml-auto mr-auto flex max-w-[80rem] items-center justify-between sm:px-0 px-5 ${navOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"} transition-all duration-200 ease-in-out`}>
+                        <div className="flex flex-1 items-center text-gray-500">
+                            <div className="flex items-center justify-between w-full md:w-auto">
+                                <Link href="/" className="cursor-pointer">
+                                    <img src="/eltik.png" className="w-auto h-14 rounded-md" />
+                                </Link>
+                                <div className="-mr-2 flex items-center md:hidden" onClick={() => {
+                                    setNavOpen(!navOpen)
+                                }}>
+                                    <button className="inline-flex justify-center items-center p-[.5rem] rounded-sm" type="button" style={{
+                                        transitionProperty: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter"
+                                    }}>
+                                        <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="hidden md:block md:ml-10">
+                                <Link href="/projects" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
+                                    Projects
+                                </Link>
+                                <Link href="/youtube" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
+                                    YouTube
+                                </Link>
+                                <Link href="/github" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
+                                    GitHub
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="hidden md:block text-right">
+                            <span className="inline-flex rounded-md shadow-md">
+                                <span className="inline-flex rounded-md">
+                                    <button type="button" className="inline-flex items-center p-[.5rem_1rem] rounded-md bg-white text-main font-semibold transition-all duration-150 hover:bg-slate-50" style={{
+                                        borderWidth: "1px",
+                                        borderColor: "rgb(243 244 246 / 1)"
+                                    }}>Login</button>
+                                </span>
+                            </span>
+                            <span className="ml-5 inline-flex rounded-md shadow-md">
+                                <span className="inline-flex rounded-md">
+                                    <button type="button" className="inline-flex items-center p-[.5rem_1rem] rounded-md bg-main text-white font-semibold transition-all duration-150 hover:bg-main-dark">Register</button>
+                                </span>
+                            </span>
+                        </div>
+                    </nav>
+                    <div className={`sm:hidden ${navOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-5"} absolute left-0 right-0 top-0 z-20 p-[.5rem] transition-all duration-200 ease-in-out`}>
+                        <div className="rounded-lg shadow-md transition transform origin-top-right">
+                            <div className="overflow-hidden rounded-[.5rem] bg-white shadow-md">
+                                <div className="px-5 pt-4 flex items-center justify-between">
+                                    <div>
+                                        <img src="/eltik.png" className="w-auto h-14 rounded-md" />
+                                    </div>
+                                    <div className="-mr-2">
+                                        <button className="inline-flex items-center justify-center rounded-md p-[.5rem]" type="button" onClick={() => {
+                                            setNavOpen(!navOpen)
+                                        }}>
+                                            <svg className="h-6 w-6 stroke-current" fill="none" viewBox="0 0 24 24">
+                                                <path className="stroke-2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="px-2 pt-2 pb-3 text-gray-500">
+                                    <Link href="/projects" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
+                                        Projects
+                                    </Link>
+                                    <Link href="/youtube" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
+                                        YouTube
+                                    </Link>
+                                    <Link href="/github" className="ml-[2.5rem] font-semibold transition-all duration-150 hover:text-black">
+                                        GitHub
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
             </main>
         </>
     );
